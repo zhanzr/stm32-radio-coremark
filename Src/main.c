@@ -74,14 +74,6 @@ int stdout_putchar (int ch)
 	return ch;
 }
 #else
-int write (int fd, const void *buf, size_t count)
-{
-	for(uint32_t i=0; i<count; ++i)
-	{
-		HAL_UART_Transmit(&huart6, buf+i, 1, 1);
-	}
-	return count;
-}
 int _write (int fd, const void *buf, size_t count)
 {
 	for(uint32_t i=0; i<count; ++i)
